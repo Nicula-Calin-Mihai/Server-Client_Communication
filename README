@@ -1,0 +1,54 @@
+Nicula Calin-Mihai - 324CBb
+
+Am pornit de la laboratorul 10
+
+Ce am modificat:
+- Am trecut pe cpp
+- Am modificat functiile compute_X_request in asa fel incat sa
+ foloseasca 'token' in cazul in care este nevoie
+- Am adaugat functia 'compute_delete_request' deoarece
+ cazul de DELETE nu era tratat deja
+- Am adaugat functia 'basic_extract_json_responsev2' care trateaza
+ la fel ca cea originala doar ca pentru listele de carti din JSON
+
+
+// 4.1
+    Trimit un JSON cu nume si parola (dump(4) pentru ca e mai dragalas)
+    Receptionez mesajul de la server, verific existenta unei erori, daca este
+    400, 401, 404 si asa mai departe este eroare, deci mai mare decat 399,
+    altfel e ok
+
+// 4.2
+    La fel ca mai sus, in majoritatea o sa se repete treaba cu verificatul
+    asa ca nu o sa ma mai repet, doar ca aici se mai preia si cookie pe care-l
+    tinem minte pe toata perioada conexiunii
+
+// 4.3
+    Apelez 'compute_get_request' cu cookie si preiau token-ul
+
+De aici apelez functiile cu book folosind token
+
+// 4.4
+    Preiau cartile de la server, in cazul in care n am primit nimic
+    afisez un Empty altfel iau fiecare carte si ii afisez id-ul si numele
+
+// 4.5
+    Citesc ID ul si il aplic in URL pentru a obtine cartea de la server, in
+    cazul in care exista o afiseaza frumos, altfel mare eroare
+
+// 4.6
+    Se citesc toate trasaturile unei carti, se fac JSON frumos, si se trimit
+    catre server, se primeste raspunsul de la server si se confirma ca a fost
+    adaugata daca nu are eroare
+
+// 4.7
+    Se citeste ID-ul si se baga la URL, in cazul in care n are eroare se
+    confirma ca s a sters
+
+// 4.8
+    Trimit request cu cookie pentru a rupe legatura si in cazul in care este
+    ok se curata cookie si token, sterg si token ptc nu vreau ca la login ul
+    urmator sa am deja un token
+
+// Exit
+    Paraseste while ul
